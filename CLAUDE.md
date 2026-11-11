@@ -34,7 +34,8 @@ Repositorio **público**: `github.com/Diazdibona-collab/economista`.
 | Carpeta | Contenido |
 |---|---|
 | `fuentes/` | `CATALOGO.md` (todas las fuentes, acceso, frecuencia, rezago) y `uruguay.md` (series clave de UY) |
-| `src/econ/` | Paquete Python: `conectores/`, `series.py`, `modelos.py`, `graficos.py` |
+| `src/econ/` | Paquete Python: `conectores/` (fred, worldbank, imf, bcb, bcra, bcu, ine, mercados), `series.py`, `modelos.py`, `graficos.py` |
+| `scripts/` | `verificar_conectores.py`: prueba todas las fuentes con descarga real |
 | `R/` | Scripts de econometría específica (paneles, IV, DiD) |
 | `data/raw/` | Descargas sin tocar, nombradas `fuente_serie_AAAAMMDD.ext` |
 | `data/processed/` | Series limpias con metadatos (fuente, período, fecha de consulta) |
