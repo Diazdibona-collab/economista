@@ -27,3 +27,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Sitio generado del monitor (lo arma GitHub Actions)
+_site/

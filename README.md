@@ -41,8 +41,8 @@ from econ import series, modelos
 - [x] **Fase 1 — Base:** estructura, reglas, catálogo de fuentes, paquete base, subagentes.
 - [x] **Fase 2 — Conectores:** FRED, Banco Mundial, FMI (SDMX 3.0), BCU (cotizaciones y reservas), INE (IPC), BCB (SGS), BCRA (v4), mercados (yfinance). Verificar con `python scripts/verificar_conectores.py`.
 - [ ] **Fase 2b — Pendientes:** BCU web (PIB desestacionalizado, TPM, expectativas), INE mercado laboral y salarios, MEF fiscal, INDEC, riesgo país.
-- [ ] **Fase 3 — Tablero:** macro Uruguay · mercados y tipo de cambio · región · global y commodities. Web + Excel.
-- [ ] **Fase 4 — Automatización:** GitHub Actions, lunes 8:00 (Uruguay).
+- [x] **Fase 3 — Tablero:** macro Uruguay · mercados y tipo de cambio · región · global y commodities. Web + Excel. Generar con `python monitor/construir.py`, `monitor/excel.py` y `monitor/web.py`. Celulosa pendiente (sin fuente pública gratuita).
+- [x] **Fase 4 — Automatización:** GitHub Actions, lunes 8:00 (Uruguay). Workflow `.github/workflows/monitor.yml`, publica en GitHub Pages.
 - [ ] **Fase 5 — Plantillas de informe:** coyuntura, país, sector, financiero, resumen ejecutivo.
 
 ## Aviso

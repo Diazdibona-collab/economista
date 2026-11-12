@@ -1,0 +1,71 @@
+# Actualiza el tablero de indicadores todos los lunes a las 8:00 de Uruguay (11:00 UTC)
+# y lo publica en GitHub Pages. También se puede correr a mano desde la pestaña Actions.
+name: Monitor semanal
+
+on:
+  schedule:
+    - cron: "0 11 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write   # para commitear datos.json y tablero.xlsx actualizados
+  pages: write
+  id-token: write
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Descargar datos
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python monitor/construir.py
+
+      - name: Generar Excel y web
+        run: |
+          python monitor/excel.py
+          python monitor/web.py _site
+          cp monitor/tablero.xlsx _site/tablero.xlsx
+
+      - name: Verificar Excel (recalculado con LibreOffice)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libreoffice-calc > /dev/null
+          mkdir -p /tmp/recalc
+          soffice --headless --calc --convert-to xlsx --outdir /tmp/recalc monitor/tablero.xlsx
+          python monitor/verificar_excel.py /tmp/recalc/tablero.xlsx
+
+      - name: Guardar datos en el repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add monitor/datos.json monitor/tablero.xlsx
+          git diff --cached --quiet || git commit -m "Monitor: actualización semanal $(date -u +%Y-%m-%d)"
+          git push
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    needs: actualizar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

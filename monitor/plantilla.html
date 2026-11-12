@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monitor Económico Uruguay</title>
+<meta name="description" content="Indicadores de Uruguay, la región, mercados y economía global. Actualización semanal con fuentes oficiales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: cabecera con fecha de corte; cuatro bloques en grilla de fichas; cada ficha = valor + variaciones + serie + fuente. */
+:root {
+  color-scheme: light;
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --ink: #14202b;
+  --ink-2: #4a5866;
+  --muted: #7d8994;
+  --rule: #dfe4e8;
+  --grid: #eceff2;
+  --accent: #2a78d6;
+  --accent-soft: rgba(42, 120, 214, .12);
+  --proj: #9fb9d9;
+  --warn-bg: #fff4dc;
+  --warn-ink: #7a5300;
+  --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #11161b; --surface: #182028; --ink: #eef2f5; --ink-2: #b6c1cb; --muted: #8592a0;
+    --rule: #2a3540; --grid: #222c36; --accent: #3987e5; --accent-soft: rgba(57, 135, 229, .18);
+    --proj: #3f5a7c; --warn-bg: #3a2f14; --warn-ink: #f2cf7a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11161b; --surface: #182028; --ink: #eef2f5; --ink-2: #b6c1cb; --muted: #8592a0;
+  --rule: #2a3540; --grid: #222c36; --accent: #3987e5; --accent-soft: rgba(57, 135, 229, .18);
+  --proj: #3f5a7c; --warn-bg: #3a2f14; --warn-ink: #f2cf7a;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+.wrap { max-width: 1240px; margin: 0 auto; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+header.top { padding-block: 32px 20px; display: grid; gap: 14px; border-bottom: 1px solid var(--rule); }
+.eyebrow { font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 600 clamp(28px, 4vw, 40px)/1.1 var(--font-display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.lede { margin: 0; color: var(--ink-2); max-width: 68ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--ink-2); font-size: 13px; }
+.meta strong { color: var(--ink); font-weight: 600; }
+nav.blocks { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.blocks a {
+  text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--rule);
+  padding: 6px 12px; border-radius: 999px; font-size: 13px;
+}
+nav.blocks a:hover { border-color: var(--accent); }
+
+section.bloque { padding-top: 32px; scroll-margin-top: 12px; }
+section.bloque > h2 { font: 600 20px/1.2 var(--font-display); margin: 0 0 14px; display: flex; align-items: baseline; gap: 10px; }
+section.bloque > h2 .n { font: 400 12px var(--font-mono); color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+
+.ficha {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px 12px;
+  display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 6px; min-width: 0; position: relative;
+}
+.ficha.pendiente { border-style: dashed; background: transparent; }
+.ficha h3 { font: 500 13px/1.35 var(--font-body); margin: 0; color: var(--ink-2); }
+.valor { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.valor b { font: 600 28px/1.1 var(--font-body); letter-spacing: -.01em; }
+.valor .u { color: var(--muted); font-size: 12px; }
+.valor .per { margin-left: auto; font: 400 12px var(--font-mono); color: var(--ink-2); }
+.cambios { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.cambios span b { color: var(--ink); font-weight: 600; }
+.chip { justify-self: start; font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--warn-bg); color: var(--warn-ink); }
+.graf { position: relative; min-height: 64px; touch-action: pan-y; }
+.graf svg { display: block; width: 100%; height: 64px; overflow: visible; }
+.tip {
+  position: absolute; top: -6px; pointer-events: none; background: var(--ink); color: var(--bg);
+  font: 500 11px/1.3 var(--font-mono); padding: 4px 7px; border-radius: 4px; white-space: nowrap; transform: translate(-50%, -100%);
+}
+.fuente { font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 2px 8px; border-top: 1px solid var(--grid); padding-top: 8px; }
+.fuente a { color: var(--ink-2); }
+.nota { font-size: 12px; color: var(--ink-2); margin: 0; }
+
+footer.pie { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--rule); display: grid; gap: 10px; color: var(--ink-2); font-size: 13px; max-width: 80ch; }
+footer.pie h2 { font: 600 16px var(--font-display); margin: 0; color: var(--ink); }
+footer.pie ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.descarga {
+  justify-self: start; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600;
+  background: var(--accent); color: #fff; padding: 9px 16px; border-radius: 6px;
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">Monitor semanal · Uruguay, región y mercados</div>
+    <h1>Monitor Económico Uruguay</h1>
+    <p class="lede">Los indicadores que mueven la coyuntura uruguaya, con el último dato oficial disponible, su variación y su fuente. Se actualiza todos los lunes a las 8:00 (hora de Uruguay).</p>
+    <div class="meta">
+      <span>Datos consultados el <strong id="generado">—</strong></span>
+      <span id="conteo"></span>
+      <a href="tablero.xlsx">Descargar Excel</a>
+    </div>
+    <nav class="blocks" id="nav" aria-label="Bloques"></nav>
+  </header>
+  <main id="bloques"></main>
+  <footer class="pie">
+    <h2>Cómo leer este monitor</h2>
+    <ul>
+      <li>Cada ficha muestra el <b>último dato publicado</b> por la fuente y el período al que corresponde, que no siempre es reciente: las cuentas nacionales tienen meses de rezago.</li>
+      <li><b>pp</b> = puntos porcentuales (para tasas). <b>%</b> = variación porcentual (para niveles y precios). Las series diarias se comparan con la semana anterior.</li>
+      <li>Las barras claras de las fichas del FMI son <b>proyecciones</b>, no datos observados.</li>
+      <li>Las fichas marcadas como <b>aproximación</b> no son la serie oficial buscada; la nota explica qué miden.</li>
+      <li>No se completa ningún dato faltante con estimaciones propias: si una fuente falla, la ficha lo dice.</li>
+    </ul>
+    <a class="descarga" href="tablero.xlsx">Descargar Excel con series y fuentes</a>
+    <p>Código, fuentes y metodología: <a href="https://github.com/Diazdibona-collab/economista">github.com/Diazdibona-collab/economista</a>. Material informativo; no es asesoramiento de inversión.</p>
+  </footer>
+</div>
+
+<script id="datos" type="application/json">__DATOS__</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("datos").textContent);
+  var MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+
+  function nf(v, dec) {
+    return new Intl.NumberFormat("es-UY", { minimumFractionDigits: dec, maximumFractionDigits: dec }).format(v);
+  }
+  function fechaLarga(iso) {
+    var p = iso.split("-");
+    return (+p[2]) + " " + MESES[+p[1] - 1] + " " + p[0];
+  }
+  function periodo(ind) {
+    var f = ind.fecha || "";
+    if (/^\d{4}-\d{2}-\d{2}$/.test(f)) return fechaLarga(f);
+    if (/^\d{4}-\d{2}$/.test(f)) { var p = f.split("-"); return MESES[+p[1] - 1] + " " + p[0]; }
+    if (/^\d{4}Q\d$/.test(f)) return f.slice(5) + "T " + f.slice(0, 4);
+    return f;
+  }
+  function puntoFecha(ind, iso) {
+    if (ind.tipo === "weo") return iso;
+    if (ind.frecuencia === "D" || ind.frecuencia === "W") return fechaLarga(iso);
+    var p = iso.split("-");
+    if (ind.frecuencia === "Q") return "T" + Math.ceil(+p[1] / 3) + " " + p[0];
+    if (ind.frecuencia === "A") return p[0];
+    return MESES[+p[1] - 1] + " " + p[0];
+  }
+  function cambio(v, tipo) {
+    if (v === null || v === undefined) return "s/d";
+    var s = v > 0 ? "▲ +" : v < 0 ? "▼ " : "= ";
+    return s + nf(v, tipo === "pp" ? 2 : 1) + (tipo === "pp" ? " pp" : " %");
+  }
+  function el(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt !== undefined) e.textContent = txt;
+    return e;
+  }
+  var NS = "http://www.w3.org/2000/svg";
+  function sv(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  function linea(cont, ind) {
+    var pts = ind.serie, W = cont.clientWidth || 260, H = 64, pad = 4;
+    var vals = pts.map(function (p) { return p[1]; });
+    var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
+    if (mx === mn) { mx += 1; mn -= 1; }
+    var x = function (i) { return pad + i * (W - 2 * pad) / Math.max(1, pts.length - 1); };
+    var y = function (v) { return pad + (H - 2 * pad) * (1 - (v - mn) / (mx - mn)); };
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": ind.nombre + ": serie de " + pts.length + " datos entre " + pts[0][0] + " y " + pts[pts.length - 1][0] });
+    [0.25, 0.5, 0.75].forEach(function (t) {
+      svg.appendChild(sv("line", { x1: 0, x2: W, y1: pad + t * (H - 2 * pad), y2: pad + t * (H - 2 * pad), stroke: "var(--grid)", "stroke-width": 1 }));
+    });
+    var d = pts.map(function (p, i) { return (i ? "L" : "M") + x(i).toFixed(1) + " " + y(p[1]).toFixed(1); }).join(" ");
+    svg.appendChild(sv("path", { d: d + " L" + x(pts.length - 1).toFixed(1) + " " + H + " L" + x(0).toFixed(1) + " " + H + " Z", fill: "var(--accent-soft)", stroke: "none" }));
+    svg.appendChild(sv("path", { d: d, fill: "none", stroke: "var(--accent)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+    var ult = pts.length - 1;
+    svg.appendChild(sv("circle", { cx: x(ult), cy: y(pts[ult][1]), r: 4, fill: "var(--accent)", stroke: "var(--surface)", "stroke-width": 2 }));
+    var guia = sv("line", { y1: 0, y2: H, stroke: "var(--muted)", "stroke-width": 1, visibility: "hidden" });
+    var punto = sv("circle", { r: 4, fill: "var(--surface)", stroke: "var(--accent)", "stroke-width": 2, visibility: "hidden" });
+    svg.appendChild(guia); svg.appendChild(punto);
+    cont.appendChild(svg);
+    var tip = el("div", "tip"); tip.hidden = true; cont.appendChild(tip);
+    function mover(ev) {
+      var r = svg.getBoundingClientRect();
+      var px = (ev.clientX - r.left) * W / r.width;
+      var i = Math.max(0, Math.min(pts.length - 1, Math.round((px - pad) / ((W - 2 * pad) / Math.max(1, pts.length - 1)))));
+      guia.setAttribute("x1", x(i)); guia.setAttribute("x2", x(i)); guia.setAttribute("visibility", "visible");
+      punto.setAttribute("cx", x(i)); punto.setAttribute("cy", y(pts[i][1])); punto.setAttribute("visibility", "visible");
+      tip.textContent = puntoFecha(ind, pts[i][0]) + " · " + nf(pts[i][1], ind.dec);
+      tip.hidden = false;
+      var left = x(i) * r.width / W;
+      tip.style.left = Math.max(50, Math.min(r.width - 50, left)) + "px";
+    }
+    function salir() { guia.setAttribute("visibility", "hidden"); punto.setAttribute("visibility", "hidden"); tip.hidden = true; }
+    svg.addEventListener("pointermove", mover);
+    svg.addEventListener("pointerdown", mover);
+    svg.addEventListener("pointerleave", salir);
+  }
+
+  function barrasWeo(cont, ind) {
+    var pts = ind.serie, W = cont.clientWidth || 260, H = 64, base = H - 14;
+    var anio = new Date(D.generado).getUTCFullYear();
+    var vals = pts.map(function (p) { return p[1]; });
+    var mx = Math.max(0, Math.max.apply(null, vals)), mn = Math.min(0, Math.min.apply(null, vals));
+    if (mx === mn) mx = 1;
+    var y = function (v) { return 4 + (base - 4) * (mx - v) / (mx - mn); };
+    var paso = W / pts.length, ancho = Math.min(24, paso * 0.6);
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": ind.nombre + " por año; desde " + anio + " son proyecciones" });
+    svg.appendChild(sv("line", { x1: 0, x2: W, y1: y(0), y2: y(0), stroke: "var(--rule)", "stroke-width": 1 }));
+    var tip = el("div", "tip"); tip.hidden = true;
+    pts.forEach(function (p, i) {
+      var cx = paso * i + paso / 2, v = p[1], y0 = y(0), y1 = y(v);
+      var proy = +p[0] >= anio;
+      var r = sv("rect", { x: cx - ancho / 2, y: Math.min(y0, y1), width: ancho, height: Math.max(1, Math.abs(y1 - y0)), rx: 3,
+        fill: proy ? "var(--proj)" : "var(--accent)" });
+      r.addEventListener("pointerenter", function () {
+        tip.textContent = p[0] + (proy ? " (proy.)" : "") + " · " + nf(v, 1) + " %";
+        tip.hidden = false; tip.style.left = Math.max(50, Math.min(W - 50, cx)) + "px";
+      });
+      r.addEventListener("pointerleave", function () { tip.hidden = true; });
+      svg.appendChild(r);
+      var t = sv("text", { x: cx, y: H - 2, "text-anchor": "middle", "font-size": 10, fill: "var(--muted)", "font-family": "var(--font-mono)" });
+      t.textContent = "’" + p[0].slice(2);
+      svg.appendChild(t);
+    });
+    cont.appendChild(svg); cont.appendChild(tip);
+  }
+
+  function ficha(ind) {
+    var f = el("article", "ficha" + (ind.estado !== "ok" ? " pendiente" : ""));
+    f.id = "ind-" + ind.id;
+    f.appendChild(el("h3", null, ind.nombre));
+    if (ind.estado !== "ok") {
+      f.appendChild(el("div", "valor")).appendChild(el("b", null, ind.estado === "pendiente" ? "Pendiente" : "Sin dato"));
+      f.appendChild(el("p", "nota", ind.nota || ind.error || "La fuente no respondió en esta actualización."));
+      return f;
+    }
+    var v = el("div", "valor");
+    v.appendChild(el("b", null, ind.valor === null ? "s/d" : nf(ind.valor, ind.dec)));
+    v.appendChild(el("span", "u", ind.unidad));
+    v.appendChild(el("span", "per", ind.tipo === "weo" ? ind.fecha + " proy." : periodo(ind)));
+    f.appendChild(v);
+    var c = el("div", "cambios");
+    if (ind.tipo === "weo") {
+      var prev = ind.proyecciones[String(+ind.fecha - 1)];
+      if (prev !== undefined && ind.valor !== null) {
+        var s = el("span"); s.append(ind.fecha - 1 + ": "); s.appendChild(el("b", null, nf(prev, 1) + " %")); c.appendChild(s);
+      }
+      var sig = ind.proyecciones[String(+ind.fecha + 1)];
+      if (sig !== undefined) { var s2 = el("span"); s2.append(+ind.fecha + 1 + " proy.: "); s2.appendChild(el("b", null, nf(sig, 1) + " %")); c.appendChild(s2); }
+    } else {
+      var a = el("span"); a.append(ind.desc_corto + ": "); a.appendChild(el("b", null, cambio(ind.cambio_corto, ind.cambio))); c.appendChild(a);
+      var b = el("span"); b.append("12 meses: "); b.appendChild(el("b", null, cambio(ind.cambio_anual, ind.cambio))); c.appendChild(b);
+    }
+    f.appendChild(c);
+    if (ind.nota && /APROXIMACI|PENDIENTE/i.test(ind.nota)) f.appendChild(el("span", "chip", "Aproximación"));
+    else f.appendChild(el("span"));
+    var g = el("div", "graf");
+    f.appendChild(g);
+    var fu = el("div", "fuente");
+    var link = el("a", null, ind.fuente); link.href = ind.url; link.target = "_blank"; link.rel = "noopener";
+    fu.appendChild(link);
+    fu.appendChild(el("span", null, ind.codigo));
+    if (ind.nota) fu.appendChild(el("span", null, ind.nota));
+    f.appendChild(fu);
+    f._dibujar = function () {
+      g.textContent = "";
+      if (!ind.serie || ind.serie.length < 2) return;
+      (ind.tipo === "weo" ? barrasWeo : linea)(g, ind);
+    };
+    return f;
+  }
+
+  document.getElementById("generado").textContent = fechaLarga(D.generado.slice(0, 10));
+  var ok = 0, tot = 0, fichas = [];
+  var main = document.getElementById("bloques"), nav = document.getElementById("nav");
+  D.bloques.forEach(function (b) {
+    var s = el("section", "bloque"); s.id = b.id;
+    var h = el("h2", null, b.titulo); h.appendChild(el("span", "n", b.indicadores.length + " indicadores"));
+    s.appendChild(h);
+    var grid = el("div", "grid");
+    b.indicadores.forEach(function (ind) {
+      tot++; if (ind.estado === "ok") ok++;
+      var f = ficha(ind); grid.appendChild(f); fichas.push(f);
+    });
+    s.appendChild(grid); main.appendChild(s);
+    var a = el("a", null, b.titulo); a.href = "#" + b.id; nav.appendChild(a);
+  });
+  document.getElementById("conteo").textContent = ok + " de " + tot + " indicadores con dato";
+  function dibujar() { fichas.forEach(function (f) { if (f._dibujar) f._dibujar(); }); }
+  dibujar();
+  var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(dibujar, 150); });
+})();
+</script>
+</body>
+</html>
