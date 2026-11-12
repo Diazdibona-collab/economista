@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-12T23:26:22+00:00",
+ "generado": "2026-11-12T23:32:24+00:00",
  "bloques": [
   {
    "id": "uy",
@@ -18315,11 +18315,11 @@
      "notas_fuente": "Fuente no oficial (confiabilidad C). Cierre diario.",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 3882.1001,
+     "valor": 3880.7,
      "fecha": "2026-11-12",
-     "cambio_corto": -5.6254,
+     "cambio_corto": -5.6594,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": -7.8674,
+     "cambio_anual": -7.9006,
      "serie": [
       [
        "2021-11-12",
@@ -19367,7 +19367,7 @@
       ],
       [
        "2026-11-12",
-       3882.1001
+       3880.7
       ]
      ]
     },
