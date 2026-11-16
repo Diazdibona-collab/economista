@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-12T23:32:24+00:00",
+ "generado": "2026-11-16T11:58:15+00:00",
  "bloques": [
   {
    "id": "uy",
@@ -17,7 +17,7 @@
      "codigo": "IPC_var_12m",
      "nombre_fuente": "IPC general total país — var_12m",
      "url": "https://www5.ine.gub.uy/documents/Estad%C3%ADsticasecon%C3%B3micas/SERIES%20Y%20OTROS/IPC/Base%20Octubre%202022=100/IPC%20gral%20y%20variaciones_base%202022.xlsx",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Planilla modificada por el INE: Thu, 05 Nov 2026 14:03:20 GMT.",
      "frecuencia": "M",
      "estado": "ok",
@@ -285,7 +285,7 @@
      "codigo": "IPC_var_mensual",
      "nombre_fuente": "IPC general total país — var_mensual",
      "url": "https://www5.ine.gub.uy/documents/Estad%C3%ADsticasecon%C3%B3micas/SERIES%20Y%20OTROS/IPC/Base%20Octubre%202022=100/IPC%20gral%20y%20variaciones_base%202022.xlsx",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Planilla modificada por el INE: Thu, 05 Nov 2026 14:03:20 GMT.",
      "frecuencia": "M",
      "estado": "ok",
@@ -553,7 +553,7 @@
      "codigo": "QNEA.URY.B1GQ.Q.NSA.XDC.Q",
      "nombre_fuente": "PIB real trimestral Uruguay",
      "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/QNEA/+/URY.B1GQ.Q.NSA.XDC.Q",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "Q",
      "estado": "ok",
@@ -661,7 +661,7 @@
      "codigo": "URY.NGDP_RPCH",
      "nombre_fuente": "WEO NGDP_RPCH — URY",
      "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.RES/WEO/+/URY.NGDP_RPCH.A",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Los años posteriores al último dato observado son PROYECCIONES del FMI.",
      "frecuencia": "A",
      "estado": "ok",
@@ -729,7 +729,7 @@
      "codigo": "MFS_IR.URY.MMRT_RT_PT_A_PT.M",
      "nombre_fuente": "Tasa del mercado monetario Uruguay",
      "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/MFS_IR/+/URY.MMRT_RT_PT_A_PT.M",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "M",
      "estado": "ok",
@@ -997,15 +997,15 @@
      "codigo": "RESERVAS",
      "nombre_fuente": "Activos de reserva del BCU",
      "url": "https://www.bcu.gub.uy/Estadisticas-e-Indicadores/MonedayCredito/Activos-de-Reserva/reservas.xls",
-     "fecha_consulta": "2026-11-12",
-     "notas_fuente": "Planilla modificada por el BCU: Thu, 12 Nov 2026 22:32:55 GMT. Definición MBP5 del FMI.",
+     "fecha_consulta": "2026-11-16",
+     "notas_fuente": "Planilla modificada por el BCU: Sun, 15 Nov 2026 22:32:13 GMT. Definición MBP5 del FMI.",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 18274.5592,
-     "fecha": "2026-11-11",
-     "cambio_corto": -0.9131,
+     "valor": 18246.8232,
+     "fecha": "2026-11-12",
+     "cambio_corto": -0.6372,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": -12.8501,
+     "cambio_anual": -12.7678,
      "serie": [
       [
        "2021-11-12",
@@ -2052,8 +2052,8 @@
        18350.1111
       ],
       [
-       "2026-11-11",
-       18274.5592
+       "2026-11-12",
+       18246.8232
       ]
      ]
     }
@@ -2075,20 +2075,16 @@
      "codigo": "COT2222",
      "nombre_fuente": "Cotización DOLAR USA (BCU)",
      "url": "https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcucotizaciones",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Web service oficial de cotizaciones del BCU. Tipo vendedor (TCV).",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 40.589,
-     "fecha": "2026-11-12",
-     "cambio_corto": 0.6996,
+     "valor": 40.611,
+     "fecha": "2026-11-13",
+     "cambio_corto": 0.4005,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 2.0568,
+     "cambio_anual": 2.1455,
      "serie": [
-      [
-       "2021-11-12",
-       44.097
-      ],
       [
        "2021-11-19",
        44.12
@@ -3130,8 +3126,8 @@
        40.449
       ],
       [
-       "2026-11-12",
-       40.589
+       "2026-11-13",
+       40.611
       ]
      ]
     },
@@ -3147,7 +3143,7 @@
      "codigo": "MFS_IR.URY.GSTBILY_RT_PT_A_PT.M",
      "nombre_fuente": "Rendimiento letras gobierno Uruguay",
      "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/MFS_IR/+/URY.GSTBILY_RT_PT_A_PT.M",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "M",
      "estado": "ok",
@@ -3415,20 +3411,16 @@
      "codigo": "DFF",
      "nombre_fuente": "Federal Funds Effective Rate",
      "url": "https://fred.stlouisfed.org/series/DFF",
-     "fecha_consulta": "2026-11-12",
-     "notas_fuente": "FRED last_updated: 2026-11-12 15:16:33-06. Ajuste estacional: NSA.",
+     "fecha_consulta": "2026-11-16",
+     "notas_fuente": "FRED last_updated: 2026-11-13 15:16:36-06. Ajuste estacional: NSA.",
      "frecuencia": "D",
      "estado": "ok",
      "valor": 3.88,
-     "fecha": "2026-11-11",
+     "fecha": "2026-11-12",
      "cambio_corto": 0.0,
      "desc_corto": "vs. hace 1 semana",
      "cambio_anual": 0.01,
      "serie": [
-      [
-       "2021-11-12",
-       0.08
-      ],
       [
        "2021-11-19",
        0.08
@@ -4470,7 +4462,7 @@
        3.88
       ],
       [
-       "2026-11-11",
+       "2026-11-12",
        3.88
       ]
      ]
@@ -4487,20 +4479,16 @@
      "codigo": "DGS2",
      "nombre_fuente": "Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity, Quoted on an Investment Basis",
      "url": "https://fred.stlouisfed.org/series/DGS2",
-     "fecha_consulta": "2026-11-12",
-     "notas_fuente": "FRED last_updated: 2026-11-12 15:16:31-06. Ajuste estacional: NSA.",
+     "fecha_consulta": "2026-11-16",
+     "notas_fuente": "FRED last_updated: 2026-11-13 15:16:46-06. Ajuste estacional: NSA.",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 4.73,
-     "fecha": "2026-11-10",
-     "cambio_corto": 0.12,
+     "valor": 4.86,
+     "fecha": "2026-11-12",
+     "cambio_corto": 0.4,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 1.15,
+     "cambio_anual": 1.3,
      "serie": [
-      [
-       "2021-11-12",
-       0.53
-      ],
       [
        "2021-11-19",
        0.52
@@ -5542,8 +5530,8 @@
        4.51
       ],
       [
-       "2026-11-10",
-       4.73
+       "2026-11-12",
+       4.86
       ]
      ]
     },
@@ -5559,20 +5547,16 @@
      "codigo": "DGS10",
      "nombre_fuente": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis",
      "url": "https://fred.stlouisfed.org/series/DGS10",
-     "fecha_consulta": "2026-11-12",
-     "notas_fuente": "FRED last_updated: 2026-11-12 15:16:39-06. Ajuste estacional: NSA.",
+     "fecha_consulta": "2026-11-16",
+     "notas_fuente": "FRED last_updated: 2026-11-13 15:16:47-06. Ajuste estacional: NSA.",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 4.98,
-     "fecha": "2026-11-10",
-     "cambio_corto": 0.03,
+     "valor": 5.1,
+     "fecha": "2026-11-12",
+     "cambio_corto": 0.26,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 0.85,
+     "cambio_anual": 1.02,
      "serie": [
-      [
-       "2021-11-12",
-       1.58
-      ],
       [
        "2021-11-19",
        1.54
@@ -6614,8 +6598,8 @@
        4.86
       ],
       [
-       "2026-11-10",
-       4.98
+       "2026-11-12",
+       5.1
       ]
      ]
     },
@@ -6631,15 +6615,15 @@
      "codigo": "^GSPC",
      "nombre_fuente": "S&P 500",
      "url": "https://finance.yahoo.com/quote/^GSPC",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Fuente no oficial (confiabilidad C). Cierre diario.",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 7592.3999,
-     "fecha": "2026-11-12",
-     "cambio_corto": 3.2456,
+     "valor": 7561.6699,
+     "fecha": "2026-11-13",
+     "cambio_corto": 2.5053,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 10.8231,
+     "cambio_anual": 12.2327,
      "serie": [
       [
        "2021-11-19",
@@ -7682,8 +7666,8 @@
        7376.8599
       ],
       [
-       "2026-11-12",
-       7592.3999
+       "2026-11-13",
+       7561.6699
       ]
      ]
     },
@@ -7699,20 +7683,16 @@
      "codigo": "VIXCLS",
      "nombre_fuente": "CBOE Volatility Index: VIX",
      "url": "https://fred.stlouisfed.org/series/VIXCLS",
-     "fecha_consulta": "2026-11-12",
-     "notas_fuente": "FRED last_updated: 2026-11-12 08:37:40-06. Ajuste estacional: NSA.",
+     "fecha_consulta": "2026-11-16",
+     "notas_fuente": "FRED last_updated: 2026-11-13 08:38:31-06. Ajuste estacional: NSA.",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 17.49,
-     "fecha": "2026-11-11",
-     "cambio_corto": 5.298,
+     "valor": 18.7,
+     "fecha": "2026-11-12",
+     "cambio_corto": -33.6409,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 1.2153,
+     "cambio_anual": 6.7961,
      "serie": [
-      [
-       "2021-11-12",
-       16.29
-      ],
       [
        "2021-11-19",
        17.91
@@ -8754,8 +8734,8 @@
        25.64
       ],
       [
-       "2026-11-11",
-       17.49
+       "2026-11-12",
+       18.7
       ]
      ]
     },
@@ -8771,7 +8751,7 @@
      "codigo": "DTWEXBGS",
      "nombre_fuente": "Nominal Broad U.S. Dollar Index",
      "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "FRED last_updated: 2026-11-09 15:16:53-06. Ajuste estacional: NSA.",
      "frecuencia": "D",
      "estado": "ok",
@@ -8781,10 +8761,6 @@
      "desc_corto": "vs. hace 1 semana",
      "cambio_anual": 0.1524,
      "serie": [
-      [
-       "2021-11-12",
-       114.5144
-      ],
       [
        "2021-11-19",
        115.2187
@@ -9845,20 +9821,16 @@
      "codigo": "432",
      "nombre_fuente": "Meta Selic",
      "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "D",
      "estado": "ok",
      "valor": 13.75,
-     "fecha": "2026-11-12",
+     "fecha": "2026-11-16",
      "cambio_corto": 0.0,
      "desc_corto": "vs. hace 1 semana",
      "cambio_anual": -1.25,
      "serie": [
-      [
-       "2021-11-12",
-       7.75
-      ],
       [
        "2021-11-19",
        7.75
@@ -10900,7 +10872,11 @@
        13.75
       ],
       [
-       "2026-11-12",
+       "2026-11-13",
+       13.75
+      ],
+      [
+       "2026-11-16",
        13.75
       ]
      ]
@@ -10917,7 +10893,7 @@
      "codigo": "13522",
      "nombre_fuente": "IPCA acumulado 12 meses",
      "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "M",
      "estado": "ok",
@@ -11181,20 +11157,16 @@
      "codigo": "1",
      "nombre_fuente": "Dólar comercial venta",
      "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 5.6143,
-     "fecha": "2026-11-12",
-     "cambio_corto": 2.7865,
+     "valor": 5.6518,
+     "fecha": "2026-11-13",
+     "cambio_corto": 2.7357,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 6.1605,
+     "cambio_anual": 7.0011,
      "serie": [
-      [
-       "2021-11-12",
-       5.4199
-      ],
       [
        "2021-11-19",
        5.5584
@@ -12236,8 +12208,8 @@
        5.5013
       ],
       [
-       "2026-11-12",
-       5.6143
+       "2026-11-13",
+       5.6518
       ]
      ]
     },
@@ -12253,20 +12225,16 @@
      "codigo": "5",
      "nombre_fuente": "Tipo de cambio mayorista de referencia",
      "url": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/5",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 1544.432,
-     "fecha": "2026-11-12",
-     "cambio_corto": -0.0625,
+     "valor": 1547.0336,
+     "fecha": "2026-11-13",
+     "cambio_corto": 0.1059,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 10.1592,
+     "cambio_anual": 9.8096,
      "serie": [
-      [
-       "2021-11-12",
-       100.2267
-      ],
       [
        "2021-11-19",
        100.465
@@ -13308,8 +13276,8 @@
        1545.3974
       ],
       [
-       "2026-11-12",
-       1544.432
+       "2026-11-13",
+       1547.0336
       ]
      ]
     },
@@ -13325,7 +13293,7 @@
      "codigo": "28",
      "nombre_fuente": "Inflación interanual.",
      "url": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/28",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "M",
      "estado": "ok",
@@ -13589,20 +13557,16 @@
      "codigo": "7",
      "nombre_fuente": "Tasa de interés BADLAR de bancos privados",
      "url": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/7",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 22.375,
-     "fecha": "2026-11-11",
-     "cambio_corto": 0.875,
+     "valor": 22.125,
+     "fecha": "2026-11-12",
+     "cambio_corto": -0.375,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": -11.0,
+     "cambio_anual": -9.1875,
      "serie": [
-      [
-       "2021-11-12",
-       34.125
-      ],
       [
        "2021-11-19",
        34.1875
@@ -14644,8 +14608,8 @@
        22.5
       ],
       [
-       "2026-11-11",
-       22.375
+       "2026-11-12",
+       22.125
       ]
      ]
     },
@@ -14661,20 +14625,16 @@
      "codigo": "1",
      "nombre_fuente": "Reservas internacionales",
      "url": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/1",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 49586.0,
-     "fecha": "2026-11-05",
-     "cambio_corto": -1.1522,
+     "valor": 49336.0,
+     "fecha": "2026-11-11",
+     "cambio_corto": -2.1829,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": 20.8972,
+     "cambio_anual": 21.8173,
      "serie": [
-      [
-       "2021-11-12",
-       42608.0
-      ],
       [
        "2021-11-19",
        42275.0
@@ -15714,6 +15674,10 @@
       [
        "2026-11-05",
        49586.0
+      ],
+      [
+       "2026-11-11",
+       49336.0
       ]
      ]
     },
@@ -15729,7 +15693,7 @@
      "codigo": "BRA.NGDP_RPCH",
      "nombre_fuente": "WEO NGDP_RPCH — BRA",
      "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.RES/WEO/+/BRA.NGDP_RPCH.A",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Los años posteriores al último dato observado son PROYECCIONES del FMI.",
      "frecuencia": "A",
      "estado": "ok",
@@ -15797,7 +15761,7 @@
      "codigo": "ARG.NGDP_RPCH",
      "nombre_fuente": "WEO NGDP_RPCH — ARG",
      "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.RES/WEO/+/ARG.NGDP_RPCH.A",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Los años posteriores al último dato observado son PROYECCIONES del FMI.",
      "frecuencia": "A",
      "estado": "ok",
@@ -15871,7 +15835,7 @@
      "codigo": "G001.NGDP_RPCH",
      "nombre_fuente": "WEO NGDP_RPCH — G001",
      "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.RES/WEO/+/G001.NGDP_RPCH.A",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Los años posteriores al último dato observado son PROYECCIONES del FMI.",
      "frecuencia": "A",
      "estado": "ok",
@@ -15939,7 +15903,7 @@
      "codigo": "CPIAUCSL",
      "nombre_fuente": "Consumer Price Index for All Urban Consumers: All Items in U.S. City Average",
      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "FRED last_updated: 2026-11-10 08:12:46-06. Ajuste estacional: SA.",
      "frecuencia": "M",
      "estado": "ok",
@@ -16199,20 +16163,16 @@
      "codigo": "ECBDFR",
      "nombre_fuente": "ECB Deposit Facility Rate for Euro Area",
      "url": "https://fred.stlouisfed.org/series/ECBDFR",
-     "fecha_consulta": "2026-11-12",
-     "notas_fuente": "FRED last_updated: 2026-11-12 06:48:33-06. Ajuste estacional: NSA.",
+     "fecha_consulta": "2026-11-16",
+     "notas_fuente": "FRED last_updated: 2026-11-13 06:47:28-06. Ajuste estacional: NSA.",
      "frecuencia": "D",
      "estado": "ok",
      "valor": 2.5,
-     "fecha": "2026-11-12",
+     "fecha": "2026-11-13",
      "cambio_corto": 0.0,
      "desc_corto": "vs. hace 1 semana",
      "cambio_anual": 0.5,
      "serie": [
-      [
-       "2021-11-12",
-       -0.5
-      ],
       [
        "2021-11-19",
        -0.5
@@ -17254,7 +17214,7 @@
        2.5
       ],
       [
-       "2026-11-12",
+       "2026-11-13",
        2.5
       ]
      ]
@@ -17271,7 +17231,7 @@
      "codigo": "PSOYBUSDM",
      "nombre_fuente": "Global price of Soybeans",
      "url": "https://fred.stlouisfed.org/series/PSOYBUSDM",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "FRED last_updated: 2026-10-22 14:26:40-05. Ajuste estacional: NSA.",
      "frecuencia": "M",
      "estado": "ok",
@@ -17531,7 +17491,7 @@
      "codigo": "PBEEFUSDM",
      "nombre_fuente": "Global price of Beef",
      "url": "https://fred.stlouisfed.org/series/PBEEFUSDM",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "FRED last_updated: 2026-10-22 14:26:53-05. Ajuste estacional: NSA.",
      "frecuencia": "M",
      "estado": "ok",
@@ -17791,7 +17751,7 @@
      "codigo": "PWOOLFUSDM",
      "nombre_fuente": "Global price of Wool, Fine",
      "url": "https://fred.stlouisfed.org/series/PWOOLFUSDM",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "FRED last_updated: 2026-10-22 14:26:35-05. Ajuste estacional: NSA.",
      "frecuencia": "M",
      "estado": "ok",
@@ -18051,7 +18011,7 @@
      "codigo": "POILBREUSDM",
      "nombre_fuente": "Global price of Brent Crude",
      "url": "https://fred.stlouisfed.org/series/POILBREUSDM",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "FRED last_updated: 2026-10-22 14:26:43-05. Ajuste estacional: NSA.",
      "frecuencia": "M",
      "estado": "ok",
@@ -18311,20 +18271,16 @@
      "codigo": "GC=F",
      "nombre_fuente": "Oro, futuro COMEX",
      "url": "https://finance.yahoo.com/quote/GC=F",
-     "fecha_consulta": "2026-11-12",
+     "fecha_consulta": "2026-11-16",
      "notas_fuente": "Fuente no oficial (confiabilidad C). Cierre diario.",
      "frecuencia": "D",
      "estado": "ok",
-     "valor": 3880.7,
-     "fecha": "2026-11-12",
-     "cambio_corto": -5.6594,
+     "valor": 3877.5,
+     "fecha": "2026-11-16",
+     "cambio_corto": -5.7601,
      "desc_corto": "vs. hace 1 semana",
-     "cambio_anual": -7.9006,
+     "cambio_anual": -5.2929,
      "serie": [
-      [
-       "2021-11-12",
-       1868.5
-      ],
       [
        "2021-11-19",
        1851.6
@@ -19366,8 +19322,12 @@
        4074.8999
       ],
       [
-       "2026-11-12",
-       3880.7
+       "2026-11-13",
+       3886.3
+      ],
+      [
+       "2026-11-16",
+       3877.5
       ]
      ]
     },
